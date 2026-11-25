@@ -5,7 +5,35 @@ The offline build kit for the Docker image `readystack/mariadb:12.3.4-CE-ubuntu2
 - Release: [12.3.4-CE-ubuntu24.04-r2](https://github.com/readystack-dev/mariadb/releases/tag/12.3.4-CE-ubuntu24.04-r2)
 - Image: [`docker.io/readystack/mariadb:12.3.4-CE-ubuntu24.04-r2`](https://hub.docker.com/r/readystack/mariadb/tags), manifest digest `sha256:ae3fa51b2e0076304d55bfbc251d0420ceb0b016bb46d32a4bde58b5ffe49500`
 - Product page: https://readystack.dev/products/mariadb
+- Source and build recipe: https://readystack.dev/products/mariadb/recipe
+- Build trail: https://readystack.dev/products/mariadb/trail/12.3.4-CE-ubuntu24.04-r2
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=mariadb
+
+## The image
+
+Single container. MariaDB Server 12.3.4 (12.3 LTS) compiled from the upstream source tag with CMake and installed in /usr/local/mariadb. The image is the whole database server: there is no external database and no sidecar, and Galera clustering is not compiled in. mariadbd runs in the foreground as the non-root mysql user. On the first start, when the data directory has no mysql subdirectory the entrypoint creates the data directory in /var/lib/mysql and sets the root password before the server opens a network port.
+
+## Who uses MariaDB and why
+
+Developers and database administrators who need a relational SQL database for websites and business applications.
+
+MariaDB Server is an open-source relational database with an SQL interface, pluggable storage engines, replication and clustering, and JSON, GIS and vector search features.
+
+A typical use: A web application keeps its customers, orders and content in MariaDB. A replica on a second server receives every change, so reports can run there without slowing the main database, and a current copy of the data is ready if the primary server fails.
+
+From the upstream project's own description: https://github.com/MariaDB/server, https://mariadb.org/about/.
+
+## This release
+
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-20 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+  - Docker Scout counts 20 packages with copyleft licences (GPL, LGPL, MPL), all of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
+- Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
+- Runs as a non-root user (`mysql`).
+- Attestations on the image: an SPDX SBOM and SLSA provenance v1.
+- Rebuilt from this kit with network egress blocked on 2026-11-20; the rebuilt image digest is the published one.
+- Base: Ubuntu 24.04.
+
+The current grade, measured again every day, is on https://readystack.dev/products/mariadb.
 
 MariaDB is distributed under its upstream licence (GPL-2.0-only AND LGPL-2.1-or-later); the kit contains upstream's source under that licence, and each vendored component under its own.
 
@@ -39,3 +67,5 @@ The build trail (`ReadyStack-mariadb-12.3.4-CE-ubuntu24.04-r2.trail.json`, signe
 ## This repository
 
 `recipe/` holds the kit's recipe files (Dockerfiles, build scripts, pins) as published at https://readystack.dev/products/mariadb/recipe. The complete kit is the release download. Each release is a tag here.
+
+— ReadyStack · https://readystack.dev
