@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "mariadb",
+  "repo": "https://github.com/MariaDB/server",
+  "ref": "mariadb-12.3.4",
+  "commit": "e4549ea60c98a8743ed4743d7f92174d8a0005d9",
+  "tree_listing_sha256": "78bf4322f5841e3b499d32898ded3542dd9e6cd52e14f1766c5ca9b5d2f52424",
+  "file_count": 27254
+}

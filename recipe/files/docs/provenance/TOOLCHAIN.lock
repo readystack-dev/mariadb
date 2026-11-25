@@ -1,0 +1,223 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "UBUNTU-CVE-2026-103111, UBUNTU-CVE-2026-86145, UBUNTU-CVE-2026-89157, UBUNTU-CVE-2026-89161: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    },
+    {
+      "min_version": "2.39-0ubuntu8.12",
+      "package": "libc-bin",
+      "reason": "UBUNTU-CVE-2026-84243: libc-bin 2.39-0ubuntu8.9 -> 2.39-0ubuntu8.12"
+    },
+    {
+      "min_version": "2.39-0ubuntu8.12",
+      "package": "libc6",
+      "reason": "UBUNTU-CVE-2026-84243: libc6 2.39-0ubuntu8.9 -> 2.39-0ubuntu8.12"
+    }
+  ],
+  "binaries_from_source": [
+    {
+      "name": "mariadbd",
+      "out_path": "/usr/local/mariadb/bin/mariadbd",
+      "verify_subcmd": "--version"
+    },
+    {
+      "name": "mariadb",
+      "out_path": "/usr/local/mariadb/bin/mariadb",
+      "verify_subcmd": "--version"
+    },
+    {
+      "name": "mariadb-admin",
+      "out_path": "/usr/local/mariadb/bin/mariadb-admin",
+      "verify_subcmd": "--version"
+    },
+    {
+      "name": "mariadb-dump",
+      "out_path": "/usr/local/mariadb/bin/mariadb-dump",
+      "verify_subcmd": "--version"
+    },
+    {
+      "name": "mariadb-backup",
+      "out_path": "/usr/local/mariadb/bin/mariadb-backup",
+      "verify_subcmd": "--version"
+    }
+  ],
+  "build_method": "source-rebuild-c",
+  "chain_id": 1140,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "offline_builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_base": {
+    "kind": "chisel",
+    "provides": [
+      "aria_chk",
+      "aria_dump_log",
+      "aria_ftdump",
+      "aria_pack",
+      "aria_read_log",
+      "innochecksum",
+      "mariabackup",
+      "mariadb",
+      "mariadb-access",
+      "mariadb-admin",
+      "mariadb-backup",
+      "mariadb-binlog",
+      "mariadb-check",
+      "mariadb-config",
+      "mariadb-conv",
+      "mariadb-convert-table-format",
+      "mariadb-dump",
+      "mariadb-dumpslow",
+      "mariadb-find-rows",
+      "mariadb-fix-extensions",
+      "mariadb-hotcopy",
+      "mariadb-import",
+      "mariadb-migrate-config-file",
+      "mariadb-plugin",
+      "mariadb-secure-installation",
+      "mariadb-setpermission",
+      "mariadb-show",
+      "mariadb-slap",
+      "mariadb-tzinfo-to-sql",
+      "mariadb-upgrade",
+      "mariadb-waitpid",
+      "mariadb_config",
+      "mariadbd",
+      "mariadbd-multi",
+      "mariadbd-safe",
+      "mariadbd-safe-helper",
+      "mbstream",
+      "msql2mysql",
+      "my_print_defaults",
+      "myisam_ftdump",
+      "myisamchk",
+      "myisamlog",
+      "myisampack",
+      "mysql",
+      "mysql_client_test",
+      "mysql_config",
+      "mysql_convert_table_format",
+      "mysql_find_rows",
+      "mysql_fix_extensions",
+      "mysql_plugin",
+      "mysql_secure_installation",
+      "mysql_setpermission",
+      "mysql_tzinfo_to_sql",
+      "mysql_upgrade",
+      "mysql_waitpid",
+      "mysqlaccess",
+      "mysqladmin",
+      "mysqlbinlog",
+      "mysqlcheck",
+      "mysqld",
+      "mysqld_multi",
+      "mysqld_safe",
+      "mysqld_safe_helper",
+      "mysqldump",
+      "mysqldumpslow",
+      "mysqlhotcopy",
+      "mysqlimport",
+      "mysqlshow",
+      "mysqlslap",
+      "mysqltest",
+      "mytop",
+      "perror",
+      "replace",
+      "resolve_stack_dump",
+      "resolveip",
+      "$BASEDIR/scripts/mariadb-install-db",
+      "mariadb-install-db"
+    ],
+    "rootfs_run": [
+      "mkdir -p \"$ROOT/etc/mysql/conf.d\""
+    ],
+    "shell": true,
+    "slice_defs": [
+      "libaio1t64",
+      "libncurses6",
+      "libpcre2-posix3"
+    ],
+    "slices": [
+      "libssl3t64_libs",
+      "zlib1g_libs",
+      "libtinfo6_libs",
+      "libstdc++6_libs",
+      "libpcre2-8-0_libs",
+      "libpcre2-posix3_libs",
+      "libncurses6_libs",
+      "libmd0_libs",
+      "libgcc-s1_libs",
+      "libedit2_libs",
+      "libcrypt1_libs",
+      "libbsd0_libs",
+      "libaio1t64_libs",
+      "libc-bin_locale"
+    ],
+    "tools": [
+      "bash",
+      "seq",
+      "id",
+      "sed",
+      "tar"
+    ]
+  },
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "mariadb",
+  "source": {
+    "build_cmds": [
+      "cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr/local/mariadb -DINSTALL_LAYOUT=STANDALONE '-DCOMPILATION_COMMENT=ReadyStack build of MariaDB Server' -DSOURCE_REVISION=@COMMIT@ -DUPDATE_SUBMODULES=OFF -DWITH_SSL=system -DWITH_ZLIB=system -DWITH_PCRE=system -DWITH_LIBFMT=system -DWITH_LIBAIO=ON -DWITH_URING=OFF -DWITH_JEMALLOC=no -DWITH_NUMA=OFF -DWITH_SYSTEMD=no -DWITH_WSREP=OFF -DWITH_UNIT_TESTS=OFF -DWITH_EMBEDDED_SERVER=OFF -DWITH_SBOM=OFF -DINSTALL_MYSQLTESTDIR= -DINSTALL_SQLBENCHDIR= -DPLUGIN_AUTH_SOCKET=STATIC -DPLUGIN_ROCKSDB=NO -DPLUGIN_COLUMNSTORE=NO -DPLUGIN_DUCKDB=NO -DPLUGIN_S3=NO -DPLUGIN_MROONGA=NO -DPLUGIN_SPIDER=NO -DPLUGIN_CONNECT=NO -DPLUGIN_OQGRAPH=NO -DPLUGIN_SPHINX=NO -DPLUGIN_VIDEX=NO -DPLUGIN_AUTH_PAM=NO -DPLUGIN_AUTH_PAM_V1=NO -DPLUGIN_AUTH_GSSAPI=NO -DPLUGIN_AUTH_GSSAPI_CLIENT=NO -DPLUGIN_HASHICORP_KEY_MANAGEMENT=NO -DPLUGIN_AWS_KEY_MANAGEMENT=NO -DPLUGIN_CRACKLIB_PASSWORD_CHECK=NO -DPLUGIN_PROVIDER_BZIP2=NO -DPLUGIN_PROVIDER_LZMA=NO -DPLUGIN_PROVIDER_LZO=NO -DPLUGIN_PROVIDER_SNAPPY=NO -DPLUGIN_PROVIDER_LZ4=NO -DPLUGIN_HANDLERSOCKET=NO -DPLUGIN_AUDIT_NULL=NO -DPLUGIN_AUTH_0X0100=NO -DPLUGIN_AUTH_TEST_PLUGIN=NO -DPLUGIN_DAEMON_EXAMPLE=NO -DPLUGIN_DEBUG_KEY_MANAGEMENT=NO -DPLUGIN_DIALOG_EXAMPLES=NO -DPLUGIN_EXAMPLE=NO -DPLUGIN_EXAMPLE_KEY_MANAGEMENT=NO -DPLUGIN_FTEXAMPLE=NO -DPLUGIN_FUNC_TEST=NO -DPLUGIN_QA_AUTH_CLIENT=NO -DPLUGIN_QA_AUTH_INTERFACE=NO -DPLUGIN_QA_AUTH_SERVER=NO -DPLUGIN_TEST_SQL_DISCOVERY=NO -DPLUGIN_TEST_SQL_SERVICE=NO -DPLUGIN_TEST_VERSIONING=NO -DPLUGIN_TYPE_TEST=NO",
+      "J=$(nproc); M=$(awk '/MemAvailable/ {print int($2/2097152)}' /proc/meminfo); [ \"$M\" -ge 1 ] || M=1; [ \"$M\" -lt \"$J\" ] && J=$M; echo \"compiling with $J parallel jobs\"; cmake --build build --parallel \"$J\"",
+      "cmake --install build --strip",
+      "cmake --install build --component Test --prefix /tmp/test-component && (cd /tmp/test-component && find . \\( -type f -o -type l \\) -print0) | (cd /usr/local/mariadb && xargs -0 -r rm -f) && rm -rf /tmp/test-component",
+      "rm -f /usr/local/mariadb/bin/mysql && printf '#!/bin/sh\\nexec /usr/local/mariadb/bin/mariadb \"$@\"\\n' > /usr/local/mariadb/bin/mysql && chmod 0755 /usr/local/mariadb/bin/mysql"
+    ],
+    "build_env": {},
+    "build_packages": [
+      "build-essential",
+      "cmake",
+      "bison",
+      "pkg-config",
+      "libssl-dev",
+      "zlib1g-dev",
+      "libpcre2-dev",
+      "libfmt-dev",
+      "libaio-dev",
+      "libncurses-dev",
+      "libedit-dev"
+    ],
+    "build_system": "cmake",
+    "builder_image": "ubuntu:24.04",
+    "commit": "e4549ea60c98a8743ed4743d7f92174d8a0005d9",
+    "commit_epoch": 1794253802,
+    "install_prefix": "/usr/local/mariadb",
+    "ref": "mariadb-12.3.4",
+    "repo": "https://github.com/MariaDB/server",
+    "source_date_epoch": 1795161102,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 12.3.4-CE-ubuntu24.04-r2 was cut (2026-11-20T07:51:42Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit e4549ea60c98, dated 2026-11-09T19:50:02Z (source.commit_epoch).",
+    "source_prep": [
+      "git submodule update --init --depth 1 libmariadb",
+      "rm -f libmariadb/.git"
+    ],
+    "vendored_deps": true
+  },
+  "version": "12.3.4"
+}

@@ -1,0 +1,21 @@
+# ReadyStack slice definition: chisel-releases (ubuntu-24.04) has no slice for libpcre2-posix3, which MariaDB's
+# mariadb-import loads (the full-Ubuntu 12.3.3-r4 image did not install it: `ldd mariadb-import` printed
+# 'libpcre2-posix.so.3 => not found'). Cut from Ubuntu's own libpcre2-posix3 .deb, as every canonical slice is; the
+# format and the paths follow chisel-releases' own library slices. Contents of libpcre2-posix3 10.42-4ubuntu2.2
+# (noble): /usr/lib/x86_64-linux-gnu/libpcre2-posix.so.3.0.4 with its .so.3 link, /usr/share/doc/libpcre2-posix3/copyright.
+package: libpcre2-posix3
+
+essential:
+  - libpcre2-posix3_copyright
+
+slices:
+  libs:
+    essential:
+      - libc6_libs
+      - libpcre2-8-0_libs
+    contents:
+      /usr/lib/*-linux-*/libpcre2-posix.so.3*:
+
+  copyright:
+    contents:
+      /usr/share/doc/libpcre2-posix3/copyright:

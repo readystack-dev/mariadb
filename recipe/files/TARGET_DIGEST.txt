@@ -1,0 +1,8 @@
+image_manifest_digest=sha256:ae3fa51b2e0076304d55bfbc251d0420ceb0b016bb46d32a4bde58b5ffe49500
+config_digest=sha256:6e444ffc7661e79bdaa037813a8bb45c783e53a49ffcc7c580ad86192c3a8600
+tag=readystack/mariadb:12.3.4-CE-ubuntu24.04-r2
+probe_port=3306
+probe_path=/
+probe_timeout=180
+verify_secret=MARIADB_ROOT_PASSWORD
+probe_exec=test ! -e /var/lib/mysql/.readystack-init-incomplete && mariadb-admin --protocol=socket --user=mysql --silent ping
